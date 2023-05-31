@@ -1,0 +1,6 @@
+.vscode
+apirate/__pycache__
+.pypirc
+dist
+build
+APIrate.egg-info
