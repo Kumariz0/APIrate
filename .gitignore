@@ -1,2 +1,4 @@
-cookie/cookies.txt
 .vscode
+apirate/__pycache__
+.pypirc
+dist

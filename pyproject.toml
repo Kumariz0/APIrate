@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "APIrate_Kumariz0"
+version = "0.1.0"
+authors = [
+  { name="Jodokus Heck", email="jodokus.heck@gmail.com" },
+]
+description = "A Api wrapper for the Api call the Sea of Thieves website uses to get its statistics"
+readme = "README.md"
+requires-python = ">=3.10.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU GENERAL PUBLIC LICENSE",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Kumariz0/APIrate"
+"Bug Tracker" = "https://github.com/Kumariz0/APIrate/issues"
