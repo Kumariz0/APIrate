@@ -1,4 +1,4 @@
-# apirate/src/__init__.py
+# apirate/__init__.py
 import requests
 
 

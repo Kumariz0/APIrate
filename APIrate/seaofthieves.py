@@ -1,5 +1,5 @@
-# apirate/src/seaofthieves.py
-from .. import session, APIKeyMissingError, InvalidEndpointError
+# apirate/seaofthieves.py
+from . import session, APIKeyMissingError, InvalidEndpointError
 
 
 class Pirate:
