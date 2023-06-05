@@ -3,10 +3,14 @@ site_name: APIrate docs
 theme:
   name: "readthedocs"
 
-plugins:
-  - mkdocstrings
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
 
 nav:
   - Home: index.md
-  - Explenation: explenation.md
+  - Installation: installation.md
   - Usage: tutorials.md
+  - Explanation: explanation.md

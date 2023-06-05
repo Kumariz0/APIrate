@@ -1,8 +1,8 @@
 # demo.py
 
 # import packages
-import browser_cookie3 as browsercookie
 import APIrate as APIrate
+import browser_cookie3 as browsercookie
 import requests
 
 # get rat cookie from firefox in this case
