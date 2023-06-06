@@ -9,7 +9,6 @@ class APIKeyMissingError(Exception):
 class InvalidEndpointError(Exception):
     pass
 
-
 session = requests.Session()
 
 from .seaofthieves import Pirate

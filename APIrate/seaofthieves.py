@@ -14,6 +14,17 @@ class Pirate:
         self.headers = {'Referer': 'https://www.seaofthieves.com/'}
 
     def get_profilev2(self, endpoint):
+        """Gets data from the sea of thieves api server about your own pirate.
+
+        Args:
+            endpoint (string): The endpoint, of where you want to get data from. Allowed endpoints are: reputation, balance, status, captaincy, adventures, chest, achievements, overview
+            
+        Raises:
+            InvalidEndpointError: Invalid endpoint
+
+        Returns:
+            dict (dict): A dict with the information gathered from the endpoint.
+        """
         ALLOWED_ENDPOINTS = [
             "reputation",
             "balance",
@@ -24,17 +35,6 @@ class Pirate:
             "achievements",
             "overview"
         ]
-        """Gets data from the sea of thieves api server about your own pirate.
-
-        Args:
-            endpoint (string): The endpoint, of where you want to get data from. Allowed endpoint are: """ + ', '.join(ALLOWED_ENDPOINTS) + """
-            
-        Raises:
-            InvalidEndpointError: Invalid endpoint
-
-        Returns:
-            dict: A dict with the information gathered from the endpoint.
-        """
         BASE_URL = "https://www.seaofthieves.com/api/profilev2"
         if endpoint not in ALLOWED_ENDPOINTS:
             raise InvalidEndpointError(
@@ -46,32 +46,32 @@ class Pirate:
         return response.json()
 
     def get_user(self, endpoint):
-        ALLOWED_ENDPOINTS = [
-            "get-suggested-friend",
-            "playing",
-            "get-recent-friends",
-        ]
         """Gets data from the sea of thieves api server about your friends.
 
         Args:
-            endpoint (string): The endpoint, of where you want to get data from. Allowed endpoint are: """ + ', '.join(ALLOWED_ENDPOINTS) + """
+            endpoint (string): The endpoint, of where you want to get data from. Allowed endpoints are: get-suggested-friend, playing, get-recent-friends
         
         Raises:
             InvalidEndpointError: Invalid endpoint
 
         Returns:
-            dict: A dict with the information gathered from the endpoint.
+            dict (dict): A dict with the information gathered from the endpoint.
         """
+        ALLOWED_ENDPOINTS_USER = [
+            "get-suggested-friend",
+            "playing",
+            "get-recent-friends",
+        ]
         BASE_URL = "https://www.seaofthieves.com/api/user"
-        if endpoint not in ALLOWED_ENDPOINTS:
+        if endpoint not in ALLOWED_ENDPOINTS_USER:
             raise InvalidEndpointError(
-                "Invalid endpoint. Allowed endpoints are: " + ', '.join(ALLOWED_ENDPOINTS))
+                "Invalid endpoint. Allowed endpoints are: " + ', '.join(ALLOWED_ENDPOINTS_USER))
 
         url = f"{BASE_URL}/{endpoint}"
         response = session.get(url, headers=self.headers,
                                cookies=self.api_key_cookie,)
         return response.json()
-    
+
     def get_ledger(self, endpoint):
         """Gets data from the sea of thieves api server about the global ledger.
 
@@ -82,7 +82,7 @@ class Pirate:
             InvalidEndpointError: Invalid endpoint
 
         Returns:
-            dict: A dict with the information gathered from the endpoint.
+            dict (dict): A dict with the information gathered from the endpoint.
         """
         ALLOWED_ENDPOINTS = [
             "GoldHoarders",
@@ -91,7 +91,7 @@ class Pirate:
             "MerchantAlliance",
             "ReapersBones"
         ]
-        
+
         BASE_URL = "https://www.seaofthieves.com/api/ledger/global/"
         if endpoint not in ALLOWED_ENDPOINTS:
             raise InvalidEndpointError(

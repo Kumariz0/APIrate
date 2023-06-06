@@ -1,0 +1,28 @@
+site_name: APIrate docs
+
+theme:
+  name: "readthedocs"
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          selection:
+            filters:
+              - "!^_[^_]"  # Exclude private objects (starting with a single underscore)
+          rendering:
+            show_source: true  # Display the source code of the documented objects
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: tutorials.md
+  - Explanation: explanation.md
+  - "Class: Pirate": Pirate.md

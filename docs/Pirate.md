@@ -1,0 +1,4 @@
+# Pirate
+
+::: APIrate.Pirate
+
