@@ -14,7 +14,7 @@ class Pirate:
         self.headers = {'Referer': 'https://www.seaofthieves.com/'}
 
     def get_profilev2(self, endpoint):
-        f"""Gets data from the sea of thieves api server about your own pirate.
+        """Gets data from the sea of thieves api server about your own pirate.
 
         Args:
             endpoint (string): The endpoint, of where you want to get data from. Allowed endpoints are: reputation, balance, status, captaincy, adventures, chest, achievements, overview
