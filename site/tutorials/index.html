@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Usage - APIrate docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Usage";
+        var mkdocs_page_input_path = "tutorials.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> APIrate docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Usage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../explanation/">Explanation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Pirate/">Class: Pirate</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">APIrate docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Usage</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="using-apirate">Using APIrate</h1>
+<div class="admonition info">
+<p>To use APIrate first of make shure you have it installed. When installeg you can import it.</p>
+</div>
+<h2 id="demo">Demo</h2>
+<p>We are going to use the demo.py file for this example.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># demo.py</span>
+
+<span class="kn">import</span> <span class="nn">APIrate</span> <span class="k">as</span> <span class="nn">APIrate</span>
+<span class="kn">import</span> <span class="nn">browser_cookie3</span> <span class="k">as</span> <span class="nn">browsercookie</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">rat</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">dict_from_cookiejar</span><span class="p">(</span><span class="n">browsercookie</span><span class="o">.</span><span class="n">firefox</span><span class="p">())</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rat&#39;</span><span class="p">)</span>
+
+<span class="n">pirate</span> <span class="o">=</span> <span class="n">APIrate</span><span class="o">.</span><span class="n">Pirate</span><span class="p">(</span><span class="n">rat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pirate</span><span class="o">.</span><span class="n">get_profilev2</span><span class="p">(</span><span class="s2">&quot;balance&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>First of in line 3-5 we import the necessary modules. We are going to use the browser_cookie3 module to get the necessary <code>RAT</code> cookie the Sea of Thieves website uses to authenticate you. The requests module is helping with grabing the cookie from the browser.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rat</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">dict_from_cookiejar</span><span class="p">(</span><span class="n">browsercookie</span><span class="o">.</span><span class="n">firefox</span><span class="p">())</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rat&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>This line is grabbing the cookie from the browser. You can use any browser you want. Just change the <code>browsercookie.firefox()</code> to the browser you want to use. For example <code>browsercookie.chrome()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rat</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">dict_from_cookiejar</span><span class="p">(</span><span class="n">browsercookie</span><span class="o">.</span><span class="n">chrome</span><span class="p">())</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rat&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>You can break this line down to the following:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cookie_jar</span> <span class="o">=</span> <span class="n">browsercookie</span><span class="o">.</span><span class="n">firefox</span><span class="p">()</span>
+<span class="n">cookie_dict</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">dict_from_cookiejar</span><span class="p">(</span><span class="n">cookie_jar</span><span class="p">)</span>
+<span class="n">rat</span> <span class="o">=</span> <span class="n">cookie_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rat&#39;</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><code>browsercookie.firefox()</code> - This is a function that returns a <code>CookieJar</code> object containing cookies stored by Firefox.</li>
+<li><code>requests.utils.dict_from_cookiejar()</code> - This is a function provided by the <code>requests</code> library that converts a <code>CookieJar</code> object into a dictionary.</li>
+<li><code>.get('rat')</code> - This retrieves the value of the <code>'rat'</code> key from the dictionary returned by <code>dict_from_cookiejar()</code>.</li>
+</ul>
+<p>In line 9 we define a Pirate object. This object is the player profile and contains the RAT cookie that you have to pass into it while defining it.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pirate</span> <span class="o">=</span> <span class="n">APIrate</span><span class="o">.</span><span class="n">Pirate</span><span class="p">(</span><span class="n">rat</span><span class="p">)</span>
+</code></pre></div>
+<p>Finaly we print the gold of the player. This is done by calling the <code>get_profilev2()</code> function and passing in the <code>balance</code> endpoint. This will return a dictionary with the balance of the player. The balance for example is made up of the players title, doubloons, gold, ancient coins and the profile image. We then get the gold by calling the <code>get()</code> function on the dictionary and passing in the <code>gold</code> key.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">pirate</span><span class="o">.</span><span class="n">get_profilev2</span><span class="p">(</span><span class="s2">&quot;balance&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">))</span>
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../explanation/" class="btn btn-neutral float-right" title="Explanation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../explanation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
