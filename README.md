@@ -24,5 +24,5 @@ Feel free to contribute to this project by making a pull request or creating an 
 [GNU GENERAL PUBLIC LICENSE][license]
 
 [Installation]: https://github.com/Kumariz0/APIrate#installation
-[wiki]: https://github.com/Kumariz0/APIrate/wiki
+[wiki]: https://kumariz0.github.io/APIrate/
 [license]: https://github.com/Kumariz0/APIrate/blob/master/LICENSE
